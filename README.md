@@ -18,3 +18,7 @@ ProxyCommand ssh -q external_bastion_ip -W %h:%p
 ```bash
 ssh -J external_ip_bastion host_ip
 ```
+
+## VPN
+bastion_IP = 34.77.173.94
+someinternalhost_IP = 10.132.0.3
