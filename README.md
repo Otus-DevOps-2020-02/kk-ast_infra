@@ -28,6 +28,7 @@ testapp_IP = 34.76.193.54
 testapp_port = 9292
 
 ## start instance with running app
+```
 gcloud compute instances create reddit-app\
   --boot-disk-size=10GB \
   --image-family ubuntu-1604-lts \
@@ -36,6 +37,16 @@ gcloud compute instances create reddit-app\
   --tags puma-server \
   --restart-on-failure \
   --metadata-from-file startup-script=app_install.sh
-
+```
 ## create fw rule from console
+```
 gcloud compute firewall-rules create puma-app --allow tcp:9292 --target-tags=puma-server --source-ranges=0.0.0.0/0 --description="allow access to puma server"
+```
+
+## packer
+Позволяет автоматизировать сборки машин, например, делаем базовый образ с необходимыми конфигурациями, на нём уже разворачиваем полность готовые под каждое приложение
+Все критичные данные должны быть в отдельном файле, который игнорируется git, пример запуска
+```
+packer build -var-file=variables.json immutable.json
+```
+В рамках задания подготовлен базовый образ VM с требуемыми параметрами и предустановленными ruby и mongo, поверх него сделан образ с предустановленным приложением, которое запускается в виде сервиса

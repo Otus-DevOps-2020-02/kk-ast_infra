@@ -1,0 +1,26 @@
+{
+	"builders": [
+		{
+		"type": "googlecompute",
+		"project_id": "{{user `project_id`}}",
+		"image_description": "{{user `image_description`}}",
+                "image_name": "reddit-full-{{timestamp}}",
+                "image_family": "reddit-full",
+                "source_image_family":"reddit-base",
+                "zone": "europe-west1-b",
+		"ssh_username": "{{user `username`}}",
+		"machine_type": "{{user `machine_type`}}",
+		"disk_size": "{{user `disk_size`}}",
+		"disk_type": "{{user `disk_type`}}",
+		"network": "{{user `network`}}",
+		"tags": "{{user `tags`}}"
+		}
+	],
+	"provisioners": [
+                {
+                "type": "shell",
+                "script": "scripts/deploy.sh",
+                "execute_command": "sudo {{.Path}}"
+                }
+	]
+}

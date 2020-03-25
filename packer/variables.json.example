@@ -1,0 +1,10 @@
+{
+  "project_id": "project id",
+  "image_family": "image family",
+  "machine_type": "instance type",
+  "image_description": "image description",
+  "disk_size": "10",
+  "disk_type": "pd-standard",
+  "network": "default",
+  "tags": "puma-app"
+}
