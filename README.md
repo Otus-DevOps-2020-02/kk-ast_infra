@@ -50,3 +50,6 @@ gcloud compute firewall-rules create puma-app --allow tcp:9292 --target-tags=pum
 packer build -var-file=variables.json immutable.json
 ```
 В рамках задания подготовлен базовый образ VM с требуемыми параметрами и предустановленными ruby и mongo, поверх него сделан образ с предустановленным приложением, которое запускается в виде сервиса
+
+## Terraform *
+При управлении ключами через Terraform следует учесть, что ключи не описанные в сценарии удаляются
