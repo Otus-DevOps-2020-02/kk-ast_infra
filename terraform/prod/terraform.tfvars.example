@@ -1,0 +1,4 @@
+project         = "infra-?"
+public_key_path = "path to public key"
+private_key_path = "path to private key"
+disk_image      = "disk image name"
