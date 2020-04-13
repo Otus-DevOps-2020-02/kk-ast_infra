@@ -1,0 +1,17 @@
+---
+- name: Configure hosts and deploy application
+  hosts: app
+  vars:
+    db_host: 10.132.0.41
+  tasks:
+    - name: Add unit file for Puma
+      become: yes
+      copy:
+        src: files/puma.service
+        dest: /etc/systemd/system/puma.service
+        owner: appuser
+        group: appuser
+
+    - name: enable puma
+      become: yes
+      systemd: name=puma enabled=yes

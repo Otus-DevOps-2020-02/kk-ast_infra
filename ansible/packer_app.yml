@@ -1,0 +1,12 @@
+---
+- name: Install packages
+  hosts: default
+  become: yes
+  tasks:
+    - name: Install ruby and bundler
+      apt:
+        pkg:
+         - ruby-full
+         - ruby-bundler
+         - build-essential
+        update_cache: yes

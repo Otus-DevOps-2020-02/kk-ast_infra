@@ -1,0 +1,29 @@
+---
+- name: Configure hosts and deploy application
+  hosts: app
+  become: yes
+  vars:
+    db_host: 10.132.0.49
+  tasks:
+    - name: Fetch the latest version of app code
+      git:
+        repo: 'https://github.com/express42/reddit.git'
+        dest: /opt/reddit
+        version: monolith
+      tags: deploy-tag
+      notify: reload puma
+
+    - name: Bundle install
+      bundler:
+        state: present
+        chdir: /opt/reddit
+
+    - name: Add config for DB connection
+      template:
+        src: templates/db_config.j2
+        dest: /home/appuser/db_config
+
+  handlers:
+    - name: reload puma
+      become: yes
+      systemd: name=puma state=restarted
