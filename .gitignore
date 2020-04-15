@@ -1,3 +1,4 @@
+jdauphant.nginx
 packer/variables.json
 *.tfstate
 *.tfstate.*.backup
