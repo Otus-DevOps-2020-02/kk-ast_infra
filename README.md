@@ -111,7 +111,19 @@ terraform get
 - Возможностью packer совместной работы с Ansible
 
 ## Ansible 3
-- Переносим созданные плейбуки в раздельные роли
-- Описываем два окружения
+- В рамках задачи были созданы роли
+```
+ansible-galaxy init role_name
+```
+- Подготовлены два окружения stage и prod
 - Используем коммьюнити роль nginx
-- Используем Ansible Vault для наших окружений
+-- requirements.yml:
+```
+- src: jdauphant.nginx
+  version: v2.21.1
+```
+-- command
+```
+ansible-galaxy install -r environments/stage/requirements.yml
+```
+- Настроен Ansible Vault для окружений
