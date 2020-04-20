@@ -1,12 +1,11 @@
 ---
-- name: Install packages
+- name: Configure hosts and deploy application
   hosts: default
   become: yes
-  tasks:
-    - name: Install ruby and bundler
-      apt:
-        pkg:
-         - ruby-full
-         - ruby-bundler
-         - build-essential
-        update_cache: yes
+
+  vars:
+    db_host: 192.168.33.10
+
+  roles:
+    - app
+    - jdauphant.nginx

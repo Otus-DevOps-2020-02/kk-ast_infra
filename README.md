@@ -140,3 +140,20 @@ ansible-galaxy install -r environments/stage/requirements.yml
 - https://habr.com/en/company/oleg-bunin/blog/431542/
 - https://habr.com/en/post/323472/
 - https://habr.com/en/post/358950/
+
+Локальная разработка при помощи Vagrant, доработка ролей для провижининга в Vagrant
+
+```
+vagrant init ubuntu/bionic64
+vagrant up
+vagrant status
+vagrant ssh
+vagrant halt
+vagrant destroy -f
+```
+
+Тестирование ролей при помощи Molecule и Testinfra
+
+- при установке molecula появились проблемы с зависимостями, пришлось делать на отдельном хосте
+
+Переключение сбора образов пакером на использование ролей
