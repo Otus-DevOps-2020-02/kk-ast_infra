@@ -127,3 +127,16 @@ ansible-galaxy init role_name
 ansible-galaxy install -r environments/stage/requirements.yml
 ```
 - Настроен Ansible Vault для окружений
+
+## Ansible 4
+
+Матрица тестирования:
+1. lint (yamllint, ansible-lint)
+2. prepare
+3. side-effect
+
+Ссылки:
+
+- https://habr.com/en/company/oleg-bunin/blog/431542/
+- https://habr.com/en/post/323472/
+- https://habr.com/en/post/358950/

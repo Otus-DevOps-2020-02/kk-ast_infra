@@ -4,7 +4,7 @@
   become: yes
 
   vars:
-    db_host: 10.132.0.53
+    db_host: 192.168.33.10
 
   roles:
     - app
